@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Capital Quiz</title>
+</head>
+<body>
+
+  <p>What is the capital of Wisconsin?</p>
+
+  <button class="wrong-answer">Bayfield</button>
+  <button id="correct-answer">Madison</button>
+  <button class="wrong-answer">Milwaukee</button>
+
+  <p id="result"></p>
+
+  <h2 id="width"></h2>
+
+  <script>
+
+    function displayWidth() {
+      let width = document.body.scrollWidth
+      let widthDisplayEl = document.querySelector('#width')
+      widthDisplayEl.innerHTML = `Window width = ${width} pixels`
+    }
+
+    displayWidth()
+
+    window.addEventListener("resize", displayWidth)
+
+    let correctAnswerButton = document.querySelector("#correct-answer")
+
+    let defaultButtonColor = correctAnswerButton.style.background
+
+    let result = document.querySelector('#result')
+
+    let wrongAnswerButtons = document.querySelectorAll('.wrong-answer')
+
+    wrongAnswerButtons.forEach( function(wrongAnswerButton) {
+      wrongAnswerButton.addEventListener("click", function() {
+        result.innerHTML = "Wrong answer! Try again."
+        correctAnswerButton.style.background = defaultButtonColor
+      })
+
+    })
+
+    correctAnswerButton.addEventListener("click", function() {
+      result.innerHTML = "Correct answer!"
+      correctAnswerButton.style.background = "green"
+    })
+
+    // alternative loop
+    // for (let x=0 ; x< wrongAnswerButton.length, x++) {
+    // let wrongAnswerButton = wrongAnswerButtons[x]
+    // }
+
+  </script>
+
+
+</body>
+</html>

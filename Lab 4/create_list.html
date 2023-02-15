@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Builder</title>
+</head>
+<body>
+
+  <p>Enter some text to add to the list</p>
+
+  <input id="new-text">
+  <button id="add-text">Add</button>
+  <button id="clear">Clear</button>
+
+  <ul id="list-of-text"></ul>
+
+<script>
+
+  // create variables needed in script
+  let textInput = document.querySelector('#new-text')
+  let addButton = document.querySelector('#add-text')
+  let textList = document.querySelector('#list-of-text')
+  let clearButton = document.querySelector('#clear')
+  let elementsInList = 0
+  let maxElements = 10
+
+  // click add button when enter is pressed
+  document.addEventListener('keyup', function () {
+    if (event.keyCode == 13) {
+      addButton.click()
+    }
+  })
+
+  // perform a function when the Add button is clicked
+  addButton.addEventListener('click', function () {
+
+    // get value from input
+    let newText = textInput.value
+
+    // validate user has entered text
+    if (newText.length == 0) {
+      alert('Enter a value')
+      return
+    }
+
+    // check list length
+    if (elementsInList >= maxElements) {
+      alert('You cannot add more elements')
+      return
+    }
+
+    // create a new list item
+    let newListItem = document.createElement('li')
+    // insert the text into the list item
+    newListItem.innerHTML = newText
+    // add the item to the list
+    textList.appendChild(newListItem)
+    // clear the input field
+    textInput.value = ''
+    // increment elementsInList by 1
+    elementsInList = elementsInList + 1
+  })
+
+  // perform a function when the Clear button is clicked
+  clearButton.addEventListener('click', function () {
+    // clear the input field
+    textList.innerHTML = ''
+    // reset element counter
+    elementsInList = 0
+  })
+
+
+</script>
+
+
+</body>
+</html>

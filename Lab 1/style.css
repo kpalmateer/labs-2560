@@ -1,0 +1,18 @@
+body {
+    background-color: forestgreen;
+    font-family: "Futura";
+    color: #FFFFFF;
+}
+
+h1 {
+    text-align: center;
+    font-size: 48px;
+}
+
+img {
+    border-radius: 15px;
+}
+
+li {
+    list-style-type: square;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Button Click</title>
+</head>
+<body>
+
+  <button>Click here!</button>
+
+<script>
+
+  let button = document.querySelector('button')
+
+  // define the function
+  // function showAlert() {
+  //   alert('You clicked the button!')
+  // }
+
+  // create an event handler
+  // button.addEventListener('click', showAlert)
+
+  // you can do the above in one action by defining the function as it's being called
+  // this is an "anonymous function"
+  button.addEventListener('click', function () {
+    alert('You clicked the button! Good job.')
+    // edit button text
+    button.innerHTML = "You clicked the button!"
+    // edit button style
+    button.style.backgroundColor = 'red'
+    // remove the button
+    // button.remove()
+  })
+
+</script>
+
+
+</body>
+</html>

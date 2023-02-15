@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS List Builder</title>
+</head>
+<body>
+
+    <h1>List Builder</h1>
+    <p>Please enter a new list item (up to 10): </p>
+
+    <!--    create text box and buttons -->
+    <input id="new-text">
+    <button id="add-item">Add</button>
+    <button id="clear-list">Clear</button>
+
+    <!-- create a blank list to hold the entries -->
+    <ul id="item-list"></ul>
+
+<script>
+
+    // define variables for HTML elements
+    let textInput = document.querySelector('#new-text')
+    let addButton = document.querySelector('#add-item')
+    let clearButton = document.querySelector('#clear-list')
+    let itemList = document.querySelector('#item-list')
+
+    // define variables for number of list items and max list size
+    let numberOfItems = 0
+    let maxItems = 10
+
+    // click add button when enter is pressed (makes testing easier)
+    document.addEventListener('keyup', function () {
+        if (event.keyCode == 13) {
+            addButton.click()
+        }
+    })
+
+    // create an event listener that contains a function that runs when Add is clicked
+    addButton.addEventListener('click', function () {
+
+        // store the input as a variable
+        let newText = textInput.value
+
+        // do nothing if the text box is empty
+        if (newText.length == 0) {
+            return
+        }
+
+        // show an alert if the text is too long
+        if (newText.length > 50) {
+            alert('Entry must be 50 characters or less')
+            return
+        }
+
+        // show an alert if the list is full
+        if (numberOfItems >= maxItems) {
+            alert('The list is full')
+            return
+        }
+
+        // create a new list item
+        let newListItem = document.createElement('li')
+
+        // add the input text to the list item
+        newListItem.innerHTML = newText
+
+        // add the item to the list
+        itemList.appendChild(newListItem)
+
+        // clear the input field
+        textInput.value = ''
+
+        // increase the numberOfItems variable by 1
+        numberOfItems++
+    })
+
+    // create an event listener that contains a function that runs when Clear is clicked
+    clearButton.addEventListener('click', function () {
+
+        // clear the list
+        itemList.innerHTML = ''
+
+        // reset numberOfItems so that a new list can be created
+        numberOfItems = 0
+    })
+
+
+</script>
+
+</body>
+</html>

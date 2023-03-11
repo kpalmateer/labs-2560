@@ -4,3 +4,8 @@
     border: 4px cadetblue solid;
 }
 
+#bridge-chart {
+    width: 800px;
+    height: 600px;
+    border: 4px indianred solid;
+}

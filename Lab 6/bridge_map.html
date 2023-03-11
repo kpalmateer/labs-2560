@@ -11,11 +11,17 @@
   <!-- Our script, uses Leaflet to draw the maps and map components for this page  -->
   <script async defer src="bridges.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+  <!-- using "async defer" will ensure that this script loads after everything else in the page -->
+  <script async defer src="bridges.js"></script>
+
 </head>
 <body>
 
 <h1>America's Longest Bridges</h1>
 <div id="bridge-map"></div>
+<br>
+<div><canvas id="bridge-chart"></canvas></div>
 
 </body>
 </html>

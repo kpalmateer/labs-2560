@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Drawing</title>
+  <style>
+    canvas {
+      border: 4px darkolivegreen solid;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="canvas" height="500" width="500"></canvas>
+
+<script>
+  let canvas = document.querySelector("#canvas")
+  let context = canvas.getContext('2d')
+
+  canvas.addEventListener('click', function () {
+    let x = event.offsetX
+    let y = event.offsetY
+
+    context.fillRect(x-5, y-5, 10, 10)
+  })
+</script>
+
+</body>
+</html>

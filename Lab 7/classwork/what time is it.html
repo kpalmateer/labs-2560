@@ -12,7 +12,12 @@
 <script>
   let timeElement = document.querySelector('#time')
 
-  setInterval( function (){
+  // setInterval( function (){
+  //   let date = Date()
+  //   timeElement.innerHTML = date
+  // }, 1000)
+
+  setInterval( () => {
     let date = Date()
     timeElement.innerHTML = date
   }, 1000)

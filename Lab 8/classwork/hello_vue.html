@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Hello World</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <!-- All of the page that Vue manages goes here -->
+    <!-- The HTML is the 'view' -->
+    <h1>Hello Vue!</h1>
+
+    <p>{{ message }}</p>
+
+    <p>{{ messageWithExclamation}}</p>
+
+    <p>This class is {{ thisClass }}</p>
+
+    <button v-on:click="addExclamation">Add !</button>
+    <button v-on:click="clearExclamation">Clear !</button>
+
+    <script>
+
+        // the Javascript is the 'model'
+        let app = Vue.createApp({
+            data() {
+                return {
+                    message: 'hi',
+                    thisClass: 'Web Programming',
+                    exclamationCount: 0,
+                    maxExclamation: 10
+                }
+            },
+            methods: {
+                addExclamation() {
+                    if (this.exclamationCount < this.maxExclamation) {
+                        this.exclamationCount++
+                    } else {
+                        alert("Too many !!")
+                    }
+                },
+                clearExclamation() {
+                    this.exclamationCount = 0
+                }
+            },
+            computed: {
+                messageWithExclamation() {
+                    let messageWithPoints = this.message
+                    for (let x = 0; x < this.exclamationCount; x++) {
+                        messageWithPoints = messageWithPoints + '!'
+                    }
+                    return messageWithPoints
+                }
+            }
+        })
+
+        app.mount('#app')
+
+    </script>
+
+</div>
+
+</body>
+</html>

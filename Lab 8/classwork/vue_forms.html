@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Hello World</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+
+<div id="app">
+    <h1>Hello Vue Forms</h1>
+
+    <label for="name">Please enter your name: </label>
+    <!-- v-model sets up two-way data binding -->
+    <!-- as the input is changed, the name data updates -->
+    <input v-model="name" id="name">
+
+    <!-- using this v-if statement will only render the paragraph if the condition is met -->
+    <p v-if="name">
+        Your name is {{ name }}
+        <br>
+        <button v-on:click="clear">Clear Input</button>
+
+    </p>
+    <!-- you can follow a v-if with a v-else -->
+    <!-- it must follow the v-if statement immediately -->
+    <p v-else>
+        Waiting for input...
+    </p>
+</div>
+
+<script>
+    let app = Vue.createApp({
+        data() {
+            return {
+                // if name is modified, the HTML will change as well
+                // this is what is meant by two-way data binding
+                // changing one changes the other
+                name: '' // empty string
+            }
+        },
+        methods: {
+            clear() {
+                this.name = ''
+            }
+        }
+    })
+    app.mount('#app')
+</script>
+
+</body>
+</html>

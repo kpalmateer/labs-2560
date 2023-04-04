@@ -1,0 +1,4 @@
+The error means that the "total" property was referenced when the page was loaded, but wasn't defined in the Vue model.
+
+To fix the error, you have to define the property in the Vue model. The error most likely can't be ignored in order for
+the page to function correctly.

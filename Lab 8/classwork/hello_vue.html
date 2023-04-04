@@ -27,6 +27,7 @@
         // the Javascript is the 'model'
         let app = Vue.createApp({
             data() {
+                // define properties
                 return {
                     message: 'hi',
                     thisClass: 'Web Programming',
@@ -34,7 +35,10 @@
                     maxExclamation: 10
                 }
             },
+            // code methods (functions) for the Vue model
             methods: {
+                // add an exclamation mark if the current number is less than the max
+                // send an alert if not
                 addExclamation() {
                     if (this.exclamationCount < this.maxExclamation) {
                         this.exclamationCount++
@@ -42,11 +46,14 @@
                         alert("Too many !!")
                     }
                 },
+                // clear the exclamation points
                 clearExclamation() {
                     this.exclamationCount = 0
                 }
             },
+            // code computed values for the Vue model
             computed: {
+                // add each exclamation point to the message and return the result
                 messageWithExclamation() {
                     let messageWithPoints = this.message
                     for (let x = 0; x < this.exclamationCount; x++) {

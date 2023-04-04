@@ -11,12 +11,17 @@
 
 <div id="app">
 
+    <!-- create view -->
     <label for="task">Please enter your new task: </label>
     <br>
+    <!-- input will be bound to newTask -->
     <input id="task" v-model="newTask">
+    <!-- buttons will call the addTask method on click -->
     <button v-on:click="addTask">Add Task</button>
+    <!-- button will call the clearTasks method on click -->
     <button v-on:click="clearTasks">Clear Tasks</button>
 
+    <!-- list will be populated with user input -->
     <ul>
         <li v-for="task in taskList"> {{ task }} </li>
     </ul>
@@ -25,17 +30,22 @@
 <script>
 
     let app = Vue.createApp({
+        // create data for the Vue model
         data() {
+            // define newTask and taskList as an empty string and array, respectively
             return {
                 newTask: '',
                 taskList: []
             }
         },
+        // define methods
         methods: {
+            // add a new item to the array and clear the input
             addTask() {
                 this.taskList.push(this.newTask)
                 this.newTask = ''
             },
+            // clear the array
             clearTasks() {
                 this.taskList = []
             }

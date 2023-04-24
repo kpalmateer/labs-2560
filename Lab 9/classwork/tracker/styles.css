@@ -1,0 +1,16 @@
+#records {
+    max-height: 250px;
+    overflow: scroll;
+}
+
+.designing {
+    color: red;
+}
+
+.coding {
+    color: blue;
+}
+
+.debugging {
+    color: black;
+}
